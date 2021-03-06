@@ -13,7 +13,7 @@
         if($mem['acc']!='admin'){
             ?>
             <tr>
-                <td><?=$mem['add'];?></td>
+                <td><?=$mem['acc'];?></td>
                 <td><?=str_repeat("*",strlen($mem['pw']));?></td>
                 <td><input type="checkbox" name="del[]" value="<?=$mem['id'];?>"></td>
             </tr>
@@ -53,8 +53,8 @@
     </tr>
     <tr>
         <td>
-            <input type="submit" value="註冊" onclick="reg()">
-            <input type="reset" value="清除">
+            <input type="button" value="註冊" onclick="reg()">
+            <input type="reset" value="清除" onclick="clearall()">
         </td>
         <td></td>
     </tr>
@@ -69,21 +69,25 @@ function reg(){
     let email=$("#email").val()
 
     if(acc=="" ||pw=="" ||pw2=="" ||email=="" ||){
-        alert("不可空白")
-    }else{
-        if(pw!=pw2){
-            alert("密碼錯誤")
-        }
+        alert('不可空白')
+    }else if(pw!=pw2){
+        alert('密碼錯誤')
     }else{
         $.post("api/ckacc.php",{acc},function(r){
             if(r=='1'){
+            alert('帳號重複')
+            }else{
                 $.post("api/reg.php",{acc,pw,email},function(){
-                    alert("註冊完成，歡迎加入")
+                    location.reload()
                 })
             }
         })
     }
+
 }
 
+function clearall(){
+    $("#acc,#pw,#pw2,#email")=""
+}
 </script>
 </fieldset>

@@ -63,7 +63,7 @@
                     	<div class="">
 						<?php
 $do=(isset($_GET['do']))?$_GET['do']:'main';
-$file="back".$do.".php";
+$file="back/".$do.".php";
 if(file_exists($file)){
 	include $file;
 }else{

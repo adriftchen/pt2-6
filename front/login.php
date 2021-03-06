@@ -18,7 +18,7 @@
 </fieldset>
 </form>
 <script>
-function log(){
+function login(){
     let acc=$("#acc").val()
     let pw=$("#pw").val()
 
@@ -41,4 +41,5 @@ function log(){
             $("#acc,#pw").val("")
         }
     })
+}
 </script>

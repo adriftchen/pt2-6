@@ -21,7 +21,7 @@
     </tr>
     <tr>
         <td>
-            <input type="submit" value="註冊" onclick="reg()">
+            <input type="button" value="註冊" onclick="reg()">
             <input type="reset" value="清除">
         </td>
         <td></td>
@@ -36,21 +36,23 @@ function reg(){
     let pw2=$("#pw2").val()
     let email=$("#email").val()
 
-    if(acc=="" ||pw=="" ||pw2=="" ||email=="" ||){
+    if(acc=="" || pw=="" || pw2=="" || email==""){
         alert("不可空白")
+    }else if(pw!=pw2){
+        alert("密碼錯誤")
+
     }else{
-        if(pw!=pw2){
-            alert("密碼錯誤")
-        }
-    }else{
-        $.post("api/ckacc.php",{acc},function(r){
-            if(r=='1'){
+
+        $.post("api/ckacc.php",{acc},function(res){
+            if(res=='1'){
+                alert("帳號重覆")
+            }else{
                 $.post("api/reg.php",{acc,pw,email},function(){
                     alert("註冊完成，歡迎加入")
                 })
             }
         })
     }
+ 
 }
-
 </script>
