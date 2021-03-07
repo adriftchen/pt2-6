@@ -18,7 +18,7 @@ $options=$Que->all(['subject'=>$id]);
             <?=$option['text'];?>
     <td>
         <div style="display:inline-block;height:25px;width:<?=100*$rate;?>%"></div>
-        <?=$option['count'];?>票(<?=$round(($rate)*100);?>)
+        <?=$option['count'];?>票(<?=round(($rate)*100);?>)
     </td>
     </tr>
     <?php
