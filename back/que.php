@@ -21,7 +21,7 @@
 </form>
 </fieldset>
 <script>
-fucntion more(){
+function more(){
     let option=`
     <tr>
         <td>選項<input type="text" name="option[]" id=""></td>
@@ -29,3 +29,4 @@ fucntion more(){
     `
     $("#more").before(option)
 }
+</script>
