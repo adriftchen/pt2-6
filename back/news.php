@@ -1,4 +1,4 @@
-<form action="api/editnews.php" methos="post">
+<form action="api/editnews.php" method="post">
 <table class="ct">
 <tr>
     <td width="10%">編號</td>
@@ -21,7 +21,7 @@
         <td><?=$news['title'];?></td>
         <td><input type="checkbox" name="sh[]" value="<?=$news['id'];?>" <?=($news['sh'==1])?'checked':'';?>></td>
         <td><input type="checkbox" name="del[]" value="<?=$news['id'];?>"></td>
-        <!-- <input type="hidden" name="id[]" value="<?=$news['id'];?>";?>> -->
+        <input type="hidden" name="id[]" value="<?=$news['id'];?>";?>>
     </tr>
     <?php
     }
